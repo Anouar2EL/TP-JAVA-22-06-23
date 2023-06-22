@@ -1,0 +1,40 @@
+package tp;
+
+import javax.swing.JOptionPane;
+
+public class MyApp {
+	
+	public static void main(String[] args) {
+		
+		test_calcul();
+	}
+	
+	
+	 public static void test_calcul( ) {
+		 Calcul calcul = new Calcul();
+		 try {
+			//double x = -9;
+			//double x = 9;
+			 double x = Double.parseDouble(JOptionPane.showInputDialog(null, "x = "));
+			 double res = calcul.racineCaree(x);
+			 System.out.println("le racine de " + x +" vaut " + res);
+			 
+			 // en tp, déclancher la division de a et b 
+			 
+			 int a = Integer.parseInt(JOptionPane.showInputDialog(null, "a = "));
+			 int b = Integer.parseInt(JOptionPane.showInputDialog(null, "b = "));
+			  
+			 double res1 = calcul.division(a,b);
+			 System.out.println("la division de" + a + " et " + b + "vaut " + res1);
+			// en cas d'exeption les lignes en fin de try ne sont jamais exécutées !!!!
+			 
+			 System.out.println("en fin de try, x*x = "  + x*x);
+			 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 System.out.println("suite de programme qui n'est pas encore planté ");
+	 }
+
+}

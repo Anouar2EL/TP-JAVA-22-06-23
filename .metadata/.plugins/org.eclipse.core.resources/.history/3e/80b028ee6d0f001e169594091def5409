@@ -1,0 +1,18 @@
+package tp;
+
+public class Calcul {
+	
+	public double racineCaree(double x) {
+		//...
+		if (x > 0)
+		return Math.sqrt(x);
+		else 
+			throw new RuntimeException("racine carée prévue seulement pour x positif ");
+	}
+	
+	public int division(int a, int b) {
+		//...
+		return a/b;
+	}
+
+}

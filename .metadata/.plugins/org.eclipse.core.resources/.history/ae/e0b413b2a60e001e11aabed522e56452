@@ -1,0 +1,59 @@
+package tp;
+
+public abstract class Bagage {
+	
+	private String label;
+	private String couleur;
+	private double poids;
+	
+	
+
+	public Bagage() {
+		super();
+	}
+
+
+
+
+
+	public Bagage(String label, String couleur, double poids) {
+		super();
+		this.label = label;
+		this.couleur = couleur;
+		this.poids = poids;
+	}
+
+
+
+
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+
+	public String getCouleur() {
+		return couleur;
+	}
+
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
+
+
+
+	public double getPoids() {
+		return poids;
+	}
+
+	public void setPoids(double poids) {
+		this.poids = poids;
+	}
+
+
+	public abstract double getVolume();
+}

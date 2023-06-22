@@ -1,0 +1,28 @@
+package tp;
+
+public class Sac extends Bagage {
+	private double volume;
+	
+	
+	public Sac() {
+		super();
+	}
+	
+	
+	public Sac(String label, String couleur, double poids, double volume) {
+		super(label, couleur, poids);
+		this.volume = volume;
+	}
+
+
+
+	public void setVolume(double volume) {
+		this.volume = volume;
+	}
+
+	@Override
+	public double getVolume() {
+		return this.volume;
+	}
+
+}

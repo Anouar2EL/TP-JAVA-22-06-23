@@ -1,0 +1,13 @@
+package tp;
+
+public class ComparateurDeVentes implements java.util.Comparator<Vente>{
+
+	@Override
+	public int compare(Vente o1, Vente o2) {
+		
+		return (int)(o1.getCa()-o2.getCa());
+
+	
+	}
+
+}

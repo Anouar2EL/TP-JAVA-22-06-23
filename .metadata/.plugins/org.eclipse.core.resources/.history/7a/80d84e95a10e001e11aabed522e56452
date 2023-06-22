@@ -1,0 +1,8 @@
+package tp;
+
+public abstract class Bagage {
+	
+	private String label;
+	private String couleur;
+	private double poids;
+}

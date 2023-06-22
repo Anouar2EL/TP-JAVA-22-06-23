@@ -1,0 +1,18 @@
+package tp;
+
+public class MyApp {
+	
+	public static void main(String[] args) {
+		
+		test_calcul();
+	}
+	
+	
+	 public static void test_calcul( ) {
+		 Calcul calcul = new Calcul();
+		 double x = 9;
+		 double res = calcul.racineCaree(x);
+		 System.out.println("le racine de " + x +" vaut " + res);
+	 }
+
+}

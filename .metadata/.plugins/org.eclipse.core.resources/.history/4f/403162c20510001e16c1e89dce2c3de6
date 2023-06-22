@@ -1,0 +1,9 @@
+package tp;
+
+public class GestionDeVentes {
+
+	public GestionDeVentes() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

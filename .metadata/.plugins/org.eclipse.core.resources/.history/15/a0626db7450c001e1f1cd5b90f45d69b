@@ -1,0 +1,42 @@
+package tp;
+
+public class Personne {
+	private String prenom;
+	private String nom;
+	//int age;
+	private Integer age;
+	
+	
+	
+	/*public Personne(String prenom, String nom, Integer age) {
+	
+		this.prenom = prenom;
+		this.nom = nom;
+		this.age = age;
+	}*/
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Personne [prenom=" + prenom + ", nom=" + nom + ", age=" + age + "]";
+	}
+	
+
+	public void incrementerAge(){
+		//un an de plus (ça modifie l'age interne de l'objet personne, main pas de return)
+		this.age++;
+	}
+	public String nomComplet(){
+		// retourner la concaténation de prenom et du nom
+		// valeur de retour de type string
+		return this.prenom + this.nom;
+	}
+}

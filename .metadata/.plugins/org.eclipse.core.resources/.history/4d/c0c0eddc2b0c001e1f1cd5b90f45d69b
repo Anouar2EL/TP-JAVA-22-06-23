@@ -1,0 +1,15 @@
+package tp;
+
+public class Personne {
+	String prenom;
+	String nom;
+	int age;
+	//Integer age;
+	
+	@Override
+	public String toString() {
+		return "Personne [prenom=" + prenom + ", nom=" + nom + ", age=" + age + "]";
+	}
+	
+	
+}

@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package tp;
+
+/**
+ * @author Administrateur
+ *
+ */
+public abstract sealed class GestionDeVentes {
+
+}

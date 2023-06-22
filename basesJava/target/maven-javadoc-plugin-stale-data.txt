@@ -1,0 +1,43 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+--release
+17
+-sourcepath
+'C:/Users/Administrateur/eclipse-workspace/basesJava/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Administrateur/eclipse-workspace/basesJava/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'basesJava 0.0.1-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'basesJava 0.0.1-SNAPSHOT API'
+tp
+C:\Users\Administrateur\eclipse-workspace\basesJava\src\main\java = 1686903937861
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\allclasses-index.html = 1687262469659
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\allpackages-index.html = 1687262469663
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\constant-values.html = 1687262469544
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\element-list = 1687262469516
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\help-doc.html = 1687262469712
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\index-all.html = 1687262469702
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\index.html = 1687262469705
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\jquery-ui.overrides.css = 1687262469736
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\member-search-index.js = 1687262469671
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\module-search-index.js = 1687262469665
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\overview-tree.html = 1687262469624
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\package-search-index.js = 1687262469666
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\script.js = 1687262469717
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\search.js = 1687262469721
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\stylesheet.css = 1687262469715
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\tag-search-index.js = 1687262469672
+C:\Users\Administrateur\eclipse-workspace\basesJava\target\site\apidocs\type-search-index.js = 1687262469669

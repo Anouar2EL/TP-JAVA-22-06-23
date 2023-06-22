@@ -1,0 +1,11 @@
+package tp;
+
+public class Sac extends Bagage {
+
+	@Override
+	public double getVolume() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,54 @@
+package tp;
+
+public class Valise extends Bagage {
+
+	private double largeur;
+	private double hauteur;
+	private double profondeur;
+	
+	
+	
+	public Valise() {
+		super();
+	}
+
+
+	@Override
+	public double getVolume() {
+		
+		return this.largeur*this.hauteur*this.profondeur/1000;
+	}
+
+
+	
+	public double getLargeur() {
+		return largeur;
+	}
+
+
+	public void setLargeur(double largeur) {
+		this.largeur = largeur;
+	}
+
+
+	
+	public double getHauteur() {
+		return hauteur;
+	}
+	
+	public void setHauteur(double hauteur) {
+		this.hauteur = hauteur;
+	}
+
+	
+	
+	public double getProfondeur() {
+		return profondeur;
+	}
+	
+	public void setProfondeur(double profondeur) {
+		this.profondeur = profondeur;
+	}
+	
+	
+}
