@@ -1,11 +1,14 @@
 package tp.entity;
 
 public class Personne {
-	
+	public enum Nationalite {FRANCAIS, ANGLAIS,MAROCAIN,ALLEMAND,ITALIEN}
 	private Integer id;
 	private String prenom;
 	private String nom;
 	
+	//private String nationalite; // v1 avec String, v2 avec enum
+	
+	private Nationalite nationalite;
 	
 	
 	
@@ -22,6 +25,20 @@ public class Personne {
 	}
 	
 	
+	
+
+
+
+	public Nationalite getNationalite() {
+		return nationalite;
+	}
+
+
+	public void setNationalite(Nationalite nationalite) {
+		this.nationalite = nationalite;
+	}
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -44,7 +61,7 @@ public class Personne {
 
 	@Override
 	public String toString() {
-		return "Personne [id=" + id + ", prenom=" + prenom + ", nom=" + nom + "]";
+		return "Personne [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", nationalite=" + nationalite + "]";
 	}
 
 

@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Administrateur\eclipse-workspace\Servers"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\jakarta_ee\decouverte_servlet\pom.xml"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\basesJdbc\src\main\java\tp\MyApp.java"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\basesJava\src\main\java\tp\bagages"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -45,15 +48,15 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="tp"/>
-			<item value="com.m2i"/>
+			<item value="fr.inetum.formation"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="basesJava2"/>
-			<item value="basesJava"/>
-			<item value="projetJavaSolo"/>
+			<item value="projet_convert"/>
+			<item value="decouverte_jsp"/>
+			<item value="jakarta_ee"/>
+			<item value="servlet_avancee"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -64,16 +67,40 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
-			<item value="0.0.1-SNAPSHOT"/>
+			<item value="0.0.1"/>
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="C:\Users\Administrateur\eclipse-workspace\projetJavaEnEquipe"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+			<item value="decouverte_jsp"/>
+			<item value="servlet_avancee"/>
+			<item value="Servlet_avances"/>
+			<item value="decouverte_servlet"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

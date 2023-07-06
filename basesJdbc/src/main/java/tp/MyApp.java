@@ -1,5 +1,7 @@
 package tp;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import tp.dao.PersonneDAO;
@@ -13,10 +15,29 @@ public class MyApp {
 	public static void main(String[] args) {
 		//testCrud();
 		//testConnectionJdbc();
-		testCrudJdbc();
+		//testCrudJdbc();
+		//testEnum();
+		testDate();
 	}
 
-	
+	public static void testDate() {
+        Date date = new Date();
+        System.out.println("date= "+date);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String sdate = simpleDateFormat.format(new Date());
+        System.out.println("MyApp.testDate()" +sdate);
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+        String sdate2 = simpleDateFormat2.format(new Date());
+        System.out.println("MyApp.testDate()" +sdate2);
+
+    }
+
+	public static void testEnum() {
+		Personne p1 = new Personne(null,"Gulien", "Parmentier");
+		//p1.setNationalite("français");
+		p1.setNationalite(Personne.Nationalite.FRANCAIS);
+		System.out.println("Nationalité de p1 = " + p1.getNationalite());
+	}
 	public static void testCrudJdbc() {
 		PersonneDAO personneDAO = new PersonneDaoJdbc();
 		Personne p1 = new Personne(null,"jean", "Bon");

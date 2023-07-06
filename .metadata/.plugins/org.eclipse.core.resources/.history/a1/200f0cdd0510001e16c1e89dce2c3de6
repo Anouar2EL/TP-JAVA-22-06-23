@@ -1,9 +1,0 @@
-package tp;
-
-public class Vente {
-	private String domaine;
-	private int mois;
-	private long ca;
-	
-	
-}

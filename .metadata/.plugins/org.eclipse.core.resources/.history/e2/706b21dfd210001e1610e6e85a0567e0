@@ -1,7 +1,0 @@
-package tp.dao;
-
-import tp.entity.Personne;
-
-public class PersonneDaoSimu extends Personne {
-
-}

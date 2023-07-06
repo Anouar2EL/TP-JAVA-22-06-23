@@ -1,6 +1,0 @@
-package tp;
-
-
-public abstract sealed class GestionDeVentes {
-
-}
