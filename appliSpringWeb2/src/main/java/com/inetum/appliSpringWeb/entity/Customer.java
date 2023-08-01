@@ -29,7 +29,7 @@ public class Customer {
 	private String password;
 	
 	@JsonIgnore 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custmer", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Compte> comptes; 
 	
 	

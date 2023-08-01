@@ -26,4 +26,5 @@ public interface DaoCompte extends JpaRepository<Compte,Long> {
     // codé via @NamedQuery(name="Compte.findBySoldeMini)
     List<Compte> findBySoldeMini(double soldeMini);
 	Optional<Compte> findByIdWithOperations(Long numero);
+	Optional<Compte> findByCustomer(Long numero);
 }

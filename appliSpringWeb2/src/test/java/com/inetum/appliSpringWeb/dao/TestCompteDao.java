@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.inetum.appliSpringWeb.entity.Compte;
+import com.inetum.appliSpringWeb.entity.Customer;
 import com.inetum.appliSpringWeb.entity.Operation;
 
 @SpringBootTest // classe interprétée par JUnit et SpringBoot
@@ -28,6 +29,9 @@ public class TestCompteDao {
 	
 	@Autowired 
 	private DaoOperation daoOperationJpa;
+	
+	@Autowired
+	private DaoCustomer doCustomerJpa;
 	@Test 
 	public void testCompteAvecOperations() {
 		
@@ -45,14 +49,19 @@ public class TestCompteDao {
 		for(Operation op : compteARelu.getOperations()) {
 			logger.trace("\t"+op.toString());
 		}
+		
+		Customer customer1 = new Customer(null,"Anouar","EL IDRISSI","123");	
+		compteAa.setCustomer(customer1);
+		
+		Compte customer1Relu = daoCompteJpa.findByCustomer(compteAa.getNumero()).orElse(null);
+		logger.trace("customer1Relu="+customer1Relu);
 	}
 	@Test
 	public void testQueries() {
 		daoCompteJpa.save(new Compte(null,"compte_A" , 50.0));
     	daoCompteJpa.save(new Compte(null,"compte_B" , 80.0));
     	daoCompteJpa.save(new Compte(null,"compte_C" , 250.0));
-    	daoCompteJpa.save(new Compte(null,"compte_D" , 540.0));
-    			
+    	daoCompteJpa.save(new Compte(null,"compte_D" , 540.0));    			
 		//List<Compte> comptesAvecSoldeMini100 = daoCompteJpa.findBySoldeGreaterThanEqual(100.0);
 		List<Compte> comptesAvecSoldeMini100 = daoCompteJpa.findBySoldeMini(100.0);
 		assertTrue(comptesAvecSoldeMini100.size()>=2);
