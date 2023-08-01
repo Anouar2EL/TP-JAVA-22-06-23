@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestCompteDao (2)" project="appliSpringWeb2" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.inetum.appliSpringWeb.dao.TestCompteDao" time="0.383" displayname="TestCompteDao" uniqueid="[engine:junit-jupiter]/[class:com.inetum.appliSpringWeb.dao.TestCompteDao]">
+    <testcase name="testQueries" classname="com.inetum.appliSpringWeb.dao.TestCompteDao" time="0.382" displayname="testQueries()" uniqueid="[engine:junit-jupiter]/[class:com.inetum.appliSpringWeb.dao.TestCompteDao]/[method:testQueries()]"/>
+  </testsuite>
+</testrun>

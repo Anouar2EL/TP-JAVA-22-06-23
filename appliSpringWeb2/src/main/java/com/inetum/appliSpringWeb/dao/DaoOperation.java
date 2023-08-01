@@ -1,6 +1,8 @@
 package com.inetum.appliSpringWeb.dao;
 
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.inetum.appliSpringWeb.entity.Operation;
 
 /**
@@ -9,7 +11,7 @@ import com.inetum.appliSpringWeb.entity.Operation;
  *
  */
 
-public interface DaoOperation extends DaoGeneric<Operation,Long> {
+public interface DaoOperation extends JpaRepository<Operation,Long> {
 	
 
 }

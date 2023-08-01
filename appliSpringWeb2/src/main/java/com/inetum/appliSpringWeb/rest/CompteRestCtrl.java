@@ -22,77 +22,92 @@ import com.inetum.appliSpringWeb.entity.Compte;
 
 @RestController
 @RequestMapping(value="/api-bank/compte" , headers="Accept=application/json")
-@CrossOrigin(origins ="*", methods = {RequestMethod.GET, RequestMethod.POST})
+//@CrossOrigin permet d'ajouter des autorisations "CORS" pour que ce web service
+//puisse être appelé en mode ajax depuis d'autres origines/url que http://localhost:8080
+@CrossOrigin(origins = "*" , methods = { RequestMethod.GET , RequestMethod.POST})
 public class CompteRestCtrl {
-
-	// NB : cette version 1 n'utilise pas encore les DTOs
+	
+	//NB: cette version 1 n'utilise pas encore les DTOs 
 	
 	@Autowired
 	private DaoCompte daoCompteJpa;
 	
 	//exemple de fin d'URL: ./api-bank/compte/1
 	@GetMapping("/{numeroCompte}" )
-	public ResponseEntity<Compte> getCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
-	    Compte compte  = daoCompteJpa.findById(numeroCompte);
+	public ResponseEntity<?> getCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
+	    Compte compte = daoCompteJpa.findById(numeroCompte).orElse(null);
 	    if(compte!=null)
-	    return new ResponseEntity<Compte>(compte, HttpStatus.OK);
+	    	return new ResponseEntity<Compte>(compte, HttpStatus.OK);
 	    else
-	    return new ResponseEntity<Compte>(HttpStatus.NOT_FOUND);//404
+	    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
+	    			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
 	}
-	
-	//exemple de fin d'URL: ./api-bank/compte
-	//                      ./api-bank/compte?soldeMini=0
-	@GetMapping("")
-	public List<Compte> getComptes(
-			 @RequestParam(value="soldeMini",required=false) Double soldeMini){
-		if(soldeMini==null)
-			return daoCompteJpa.findAll();
-		else
-			return daoCompteJpa.findBySoldeMini(soldeMini);
-	}
-	
-	// exemple de fin d'URL: ./api-bank/compte
-	// appelé en mode POST avec dans la partie invisible "body" de la requete : 
-	// {"numero": null, "label": "compteQuiVaBien", "solde":50.0}
-	// ou bien {"label": "compteQuiVaBien", "solde":50.0}
-	@PostMapping("")
-	public Compte postCompte(@RequestBody Compte nouveauCompte) {
-		Compte compteEnregistreEnBase = daoCompteJpa.insert(nouveauCompte);
-		return compteEnregistreEnBase; // on retourne le compte avec clef primaire auto_incrémenté
-	}
-	
-	
-	//exemple de fin d'URL: ./api-bank/compte
-	//appelé en mode PUT avec dans la partie invisible "body" de la requête:
-	// { "numero" : 5 , "label" : "compte5QueJaime" , "solde" : 150.0 }
-	@PutMapping("" )
-	public ResponseEntity<?> putCompteToUpdate(@RequestBody Compte compte) {
-		    Long numCompteToUpdate = compte.getNumero();
-		    Compte compteQuiDevraitExister = daoCompteJpa.findById(numCompteToUpdate);
-		    if(compteQuiDevraitExister==null)
-		    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
- 			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
-			daoCompteJpa.update(compte);
-			return new ResponseEntity<Compte>(compte , HttpStatus.OK);
-	}
-	
-	
 	
 	//exemple de fin d'URL: ./api-bank/compte/1
 	//à déclencher en mode DELETE
 	@DeleteMapping("/{numeroCompte}" )
 	public ResponseEntity<?> deleteCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
-		    Compte compteAsupprimer = daoCompteJpa.findById(numeroCompte);
-		    if(compteAsupprimer==null)
+		    
+		    if( !daoCompteJpa.existsById(numeroCompte))
 		    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
 		    			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
 		    
 		    daoCompteJpa.deleteById(numeroCompte);
-		    return new ResponseEntity<String>("{ \"done\" : \"compte deleted\"}" ,
-		    		                          HttpStatus.OK); 
+		    return new ResponseEntity<String>("{ \"done\" : \"compte deleted\"}" ,HttpStatus.OK); 
 		    //ou bien
 		    //return new ResponseEntity<>(HttpStatus.NO_CONTENT); 
 		}
 	
+	//exemple de fin d'URL: ./api-bank/compte
+	//                      ./api-bank/compte?soldeMini=0
+	@GetMapping("" )
+	public List<Compte> getComptes(
+			 @RequestParam(value="soldeMini",required=false) Double soldeMini){
+		if(soldeMini==null)
+			return daoCompteJpa.findAll();
+		else
+			return daoCompteJpa.findBySoldeGreaterThanEqual(soldeMini);
+	}
 	
+	//exemple de fin d'URL: ./api-bank/compte
+	//appelé en mode POST avec dans la partie invisible "body" de la requête:
+	// { "numero" : null , "label" : "compteQuiVaBien" , "solde" : 50.0 }
+	// ou bien { "label" : "compteQuiVaBien" , "solde" : 50.0 }
+	@PostMapping("" )
+	public Compte postCompte(@RequestBody Compte nouveauCompte) {
+		Compte compteEnregistreEnBase = daoCompteJpa.save(nouveauCompte);
+		return compteEnregistreEnBase; //on retourne le compte avec clef primaire auto_incrémentée
+	}
+	
+	//exemple de fin d'URL: ./api-bank/compte
+	//ou bien               ./api-bank/compte/5
+	//appelé en mode PUT avec dans la partie invisible "body" de la requête:
+	// { "numero" : 5 , "label" : "compte5QueJaime" , "solde" : 150.0 }
+	//ou bien {  "label" : "compte5QueJaime" , "solde" : 150.0 }
+	@PutMapping({"" , "/{numeroCompte}" })
+	public ResponseEntity<?> putCompteToUpdate(@RequestBody Compte compte , 
+			      @PathVariable(value="numeroCompte",required = false ) Long numeroCompte) {
+		
+		    Long numCompteToUpdate = numeroCompte!=null ? numeroCompte : compte.getNumero();
+		   
+		    Compte compteQuiDevraitExister = 
+		    		   numCompteToUpdate!=null ? daoCompteJpa.findById(numCompteToUpdate).orElse(null) : null;
+		    
+		    if(compteQuiDevraitExister==null)
+		    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
+ 			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
+		    
+		    if(compte.getNumero()==null)
+		    	compte.setNumero(numCompteToUpdate);
+			daoCompteJpa.save(compte);
+			return new ResponseEntity<Compte>(compte , HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
+	
+	
+
 }

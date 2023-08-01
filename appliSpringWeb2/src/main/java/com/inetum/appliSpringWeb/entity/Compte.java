@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
@@ -23,6 +25,10 @@ import lombok.Setter;
             query = "SELECT c FROM Compte c WHERE c.solde>= ?1")
 @NamedQuery(name = "Compte.findBySoldeMaxi", 
             query = "SELECT c FROM Compte c WHERE c.solde<= ?1")
+
+@NamedQuery(name = "Compte.findByIdWithOperations",
+			query = "SELECT c FROM Compte c LEFT JOIN FETCH c.operations WHERE c.numero = ?1")
+        
 @Getter @Setter @NoArgsConstructor
 public class Compte {
 
@@ -41,6 +47,10 @@ public class Compte {
 	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "compte")
 	private List<Operation> operations; 
 	
+	
+	@ManyToOne  // Many operation To one Compte
+	@JoinColumn(name = "id_customer")
+	private Customer customer;
 
 	public Compte(Long numero, String label, Double solde) {
 		super();

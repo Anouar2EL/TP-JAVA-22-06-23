@@ -1,5 +1,9 @@
 package com.inetum.appliSpringWeb.dao;
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.inetum.appliSpringWeb.entity.Compte;
 
 /**
@@ -8,8 +12,18 @@ import com.inetum.appliSpringWeb.entity.Compte;
  *
  */
 
-public interface DaoCompte extends DaoGeneric<Compte,Long> {
+public interface DaoCompte extends JpaRepository<Compte,Long> {
+    List<Compte> findBySoldeGreaterThanEqual(double soldeMini);
+    List<Compte> findBySoldeLessThanEqual(double soldeMaxi);
+    /*
+     .save()
+     .findAll()
+     .findById()
+     .deleteById()
+     héritées de JpaRepository/ CrudRepository
+     */
+    
+    // codé via @NamedQuery(name="Compte.findBySoldeMini)
     List<Compte> findBySoldeMini(double soldeMini);
-    List<Compte> findBySoldeMaxi(double soldeMaxi);
-    //findAll() , deleteById() , ... héritées de DaoGeneric
+	Optional<Compte> findByIdWithOperations(Long numero);
 }

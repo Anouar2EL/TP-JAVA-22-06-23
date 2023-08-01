@@ -1,6 +1,8 @@
 package com.inetum.appliSpringWeb.entity;
 
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,11 +31,13 @@ public class Operation {
 	private String label;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name="dateOp")
 	private Date date;
 	
 	
 	@ManyToOne  // Many operation To one Compte
 	  @JoinColumn(name = "ref_Compte")
+
 	private Compte compte;
 
 	

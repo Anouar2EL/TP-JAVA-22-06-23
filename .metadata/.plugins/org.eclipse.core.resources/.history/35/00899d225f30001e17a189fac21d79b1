@@ -1,0 +1,18 @@
+package com.inetum.appliSpringWeb.dao;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.inetum.appliSpringWeb.entity.Compte;
+
+/**
+ * DAO = Data Access Object
+ * avec méthode CRUD
+ *
+ */
+
+public interface DaoCompte extends JpaRepository<Compte,Long> {
+    List<Compte> findBySoldeMini(double soldeMini);
+    List<Compte> findBySoldeMaxi(double soldeMaxi);
+    
+}
