@@ -2,6 +2,12 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Administrateur\eclipse-workspace\TpInetum_JavaWeb\src\main\java\fr\inetum\tp\entites\adresse.java"/>
+			<item value="C:\Users\Administrateur\OneDrive - M2I\Bureau\jakarta_ee"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\jakarta_ee"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\decouverte_jdbc\src\main\java\fr\inetum\formation\MaConnexion.java"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\ProjetJBDC"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\Servers"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\jakarta_ee\decouverte_servlet\pom.xml"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\basesJdbc\src\main\java\tp\MyApp.java"/>
@@ -48,15 +54,12 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="fr.inetum.formation"/>
+			<item value="com.inetum"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="projet_convert"/>
-			<item value="decouverte_jsp"/>
-			<item value="jakarta_ee"/>
-			<item value="servlet_avancee"/>
+			<item value="appliWeb"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -67,7 +70,7 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
-			<item value="0.0.1"/>
+			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
@@ -84,6 +87,18 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpring"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpringWeb"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpring.jpa"/>
+			<item value="C:\Users\Administrateur\OneDrive - M2I\Bureau\TpInetum_JavaWeb"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\jakarta_ee\jakarta_ee"/>
+			<item value="C:\Users\Administrateur\Downloads\projet-convert-servlet-jsp"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\basesJava"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\basesJava2"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\basesJdbc"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\jakarta_ee"/>
+			<item value="C:\Users\Administrateur\Downloads\jakarta_ee"/>
+			<item value="C:\Users\Administrateur\Downloads\jakarta_ee\jakarta_ee"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\projetJavaEnEquipe"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -97,6 +112,7 @@
 	</section>
 	<section name="MavenModuleWizardParentPage">
 		<list key="moduleName">
+			<item value="crud_selvret_jsp_jdbc"/>
 			<item value="decouverte_jsp"/>
 			<item value="servlet_avancee"/>
 			<item value="Servlet_avances"/>
@@ -110,5 +126,17 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="531"/>
+		<item key="x" value="560"/>
+		<item key="y" value="76"/>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.EditDependencyDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="450"/>
+		<item key="x" value="560"/>
+		<item key="y" value="130"/>
 	</section>
 </section>

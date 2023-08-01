@@ -40,10 +40,10 @@
 
 			<div>
 				<%
-                String succes = (String)request.getAttribute("nombre");
-                if(succes != null) {
+                String res = (String)request.getAttribute("nombre");
+                if(res != null) {
             %>
-				<div class=" result alert alert-success"><%= succes  %></div>
+				<div class=" result alert alert-success"><%= res  %></div>
 			<% 
 				
                 } %>

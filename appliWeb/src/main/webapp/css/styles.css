@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+.error{
+	color: red;
+}
+
+.footer{
+	background-color: #5e0080;
+	width : 100%;
+	color: white;
+}
+
+.footer > a{
+	color: white;
+}
+.header{
+	background-color: #5e0080;
+	width : 100%;
+	color: white;
+	font-size:36px;
+	line-height:48px;
+}

@@ -6,19 +6,22 @@
   
       <properties>
 		
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>
+			UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>17</maven.compiler.release>
 		<maven.compiler.target>17</maven.compiler.target>
-		<maven.compiler.source>17</maven.compiler.source>
-		
+		<maven.compiler.source>
+			17</maven.compiler.source>
+
 	</properties>
-	
-      <dependencies>
-      	
+
+	<dependencies>
+
 		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		    <version>2.1.214</version>  
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
 		</dependency>
-      </dependencies>
+
+	</dependencies>
 </project>
