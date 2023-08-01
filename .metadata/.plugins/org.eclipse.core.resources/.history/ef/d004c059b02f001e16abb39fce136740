@@ -1,0 +1,31 @@
+package com.inetum.appliSpring.tp1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
+
+@Component
+@Profile("PasDrole")
+public class GenerateurBlaguePasDrole implements GenerateurBlague {
+
+	private List<String> Blague;
+	@Override
+	public String nouvelleBlague() {
+					
+		// Initialisation de la liste de blagues
+		Blague = new ArrayList<>();
+		Blague.add("Le ciel est bleu.");
+		Blague.add("La mer est calme aujourd'hui.");
+		Blague.add("Les oiseaux chantent dans les arbres.");
+		Blague.add("Le café est chaud et délicieux.");
+		Blague.add("Les montagnes sont majestueuses.");
+
+		Random random = new Random();
+        int randomIndex = random.nextInt(Blague.size());
+        return Blague.get(randomIndex);				
+	}
+
+}

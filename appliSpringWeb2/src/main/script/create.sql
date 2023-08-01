@@ -147,3 +147,9 @@ alter table operation add constraint FKn4dupl0ql813fl2mfvryxns49 foreign key (re
 create table compte (numero bigint not null auto_increment, label varchar(255), solde double precision, primary key (numero)) engine=InnoDB;
 create table operation (id_op bigint not null auto_increment, date date, label varchar(255), montant double precision, ref_compte bigint, primary key (id_op)) engine=InnoDB;
 alter table operation add constraint FKn4dupl0ql813fl2mfvryxns49 foreign key (ref_compte) references compte (numero);
+create table compte (numero bigint not null auto_increment, label varchar(255), solde double precision, primary key (numero)) engine=InnoDB;
+create table operation (id_op bigint not null auto_increment, date date, label varchar(255), montant double precision, ref_compte bigint, primary key (id_op)) engine=InnoDB;
+alter table operation add constraint FKn4dupl0ql813fl2mfvryxns49 foreign key (ref_compte) references compte (numero);
+create table compte (numero bigint not null auto_increment, label varchar(255), solde double precision, primary key (numero)) engine=InnoDB;
+create table operation (id_op bigint not null auto_increment, date date, label varchar(255), montant double precision, ref_compte bigint, primary key (id_op)) engine=InnoDB;
+alter table operation add constraint FKn4dupl0ql813fl2mfvryxns49 foreign key (ref_compte) references compte (numero);

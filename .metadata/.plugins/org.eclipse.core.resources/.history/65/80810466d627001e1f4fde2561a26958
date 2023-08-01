@@ -1,0 +1,52 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.inetum.appliSpring.jpa.entity.Client;
+
+public class DoaGenericJpa<E,PK> implements DaoGeneric<E,PK> {
+
+private Class<E> entityClass; //ex: Client.class ou Compte.class
+	
+	public void DaoGenericJpa(Class<E> entityClass) {
+		this.entityClass = entityClass;
+	}
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	@Override
+	public E findById(PK id) {
+		return entityManager.find(entityClass, id);
+	}
+	
+
+	@Override
+	public List<E> findAll() {
+		return entityManager.createQuery("SELECT  FROM " + entityClass.getSimpleName(),
+				entityClass)
+	            .getResultList();
+	}
+
+	@Override
+	public E insert(E e) {
+		entityManager.persist(e);
+		return e;
+	}
+
+	@Override
+	public void update(E e) {
+		entityManager.merge(e);
+	}
+
+	@Override
+	public void deleteById(PK id) {
+		E e= entityManager.find(entityClass, id);
+		entityManager.remove(e);
+	}
+
+
+}

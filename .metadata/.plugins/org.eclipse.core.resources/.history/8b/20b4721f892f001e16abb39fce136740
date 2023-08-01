@@ -1,0 +1,21 @@
+package com.inetum.appliSpring.tp;
+
+import org.springframework.stereotype.Component;
+
+
+@Component 
+public class SuffixeurV1 implements Suffixeur{
+
+	private String suffixe="**";
+	
+	@Override
+	public String suffixer(String chaine) {	
+		return suffixe + chaine;
+	}
+
+	@Override
+	public String suffixerMaj(String chaine) {
+		return suffixe + chaine.toUpperCase();
+	}
+
+}

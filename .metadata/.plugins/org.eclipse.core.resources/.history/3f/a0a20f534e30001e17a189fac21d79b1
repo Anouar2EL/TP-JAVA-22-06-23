@@ -1,0 +1,82 @@
+package com.inetum.appliSpringWeb.dao;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.inetum.appliSpringWeb.entity.Compte;
+import com.inetum.appliSpringWeb.entity.Operation;
+
+
+@SpringBootTest  // classe interprétée par JUnit et SpringBoot
+public class TestOperationDao {
+	
+	Logger logger =  LoggerFactory.getLogger(TestOperationDao.class);
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoCompte daoCompteJpa;
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoOperation daoOperationJpa;
+	
+	@Test
+	public void testSensSecondaire(){
+		
+//		Compte compteA = new Compte(null, "compte_A",10000.0);
+//		Operation op1 = new Operation(null,-3.2,"achat bonbons",new Date(),compteA);
+//		Operation op2 = new Operation(null,-3.2,"achat stylo",new Date());
+//		compteA.addOperation(op1);     op1.setCompte(compteA); op2.setCompte(compteA);
+//		compteA.addOperation(op2);
+//		daoCompteJpa.update(compteA);
+		
+		
+		
+		
+		Compte compteA = daoCompteJpa.insert(new Compte(null, "compte_A",500.0));	
+		Operation op1Comp1 = daoOperationJpa.insert(
+				new Operation(null,-3.2,"achat bonbons",new Date(),compteA));
+		Operation op2 = daoOperationJpa.insert(
+				new Operation(null,-80.5,"transport",new Date(),compteA));
+		Compte compteARelu = daoCompteJpa.findCompteWithOperationsById(compteA.getNumero());
+		assertTrue(compteARelu.getOperations().size()==2);
+	}
+	
+	
+	
+	@Test
+	public void testCompteEtOperation(){
+		
+				Compte comp1 = daoCompteJpa.insert(new Compte(null, "Anouar",10000.0));	
+				Compte comp2 = daoCompteJpa.insert(new Compte(null, "Alex",2000.0));	
+				
+				Operation op1Comp1 = daoOperationJpa.insert(
+						new Operation(null,-3.2,"achat bonbons",new Date(),comp1));
+				Operation op1Comp2 = daoOperationJpa.insert(
+						new Operation(null,-5.2,"achat gateaux",new Date(),comp2));
+				Operation op2Comp1 = daoOperationJpa.insert(
+						new Operation(null,-100.0,"Jeux",new Date(),comp1));
+				Operation op2Comp2 = daoOperationJpa.insert(
+						new Operation(null,-80.5,"transport",new Date(),comp2));
+				
+				Operation op1Comp1Relu = daoOperationJpa.findById(op1Comp1.getIdOp());
+				logger.trace("op1Comp1Relu :=" + op1Comp1Relu);
+				
+				Operation op2Comp2Relu = daoOperationJpa.findById(op2Comp2.getIdOp());
+				logger.trace("op2Comp2Relu :=" + op2Comp2Relu);
+				assertEquals(-3.2, op1Comp1Relu.getMontant(),0.00001);
+				
+				Compte compte1Relu = daoCompteJpa.findCompteWithOperationsById(comp1.getNumero());
+
+		    	logger.debug("operations du compteA:");
+		    	for(Operation op : compte1Relu.getOperations() ) {
+		    		logger.debug("\t" + op.toString());}
+	}
+	
+}

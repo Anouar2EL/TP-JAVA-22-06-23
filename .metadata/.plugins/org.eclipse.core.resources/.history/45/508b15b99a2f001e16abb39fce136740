@@ -1,0 +1,11 @@
+package com.inetum.appliSpring.tp1;
+
+public class PresentateurBlagueImpl implements PresentateurBlague {
+
+	@Override
+	public String presenterBlague(String chaine) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

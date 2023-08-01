@@ -1,0 +1,79 @@
+package fr.inetum.formation.crud.jdbc.models;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class StagiaireTest {
+
+	@Test
+	void testStagiaireIntegerStringStringLocalDateString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testStagiaireStringStringLocalDateString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testStagiaire() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetId() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetId() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetPrenom() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetPrenom() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetEmail() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetEmail() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetDdn() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetDdn() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetMdp() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetMdp() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetAge() {
+		fail("Not yet implemented");
+	}
+
+}

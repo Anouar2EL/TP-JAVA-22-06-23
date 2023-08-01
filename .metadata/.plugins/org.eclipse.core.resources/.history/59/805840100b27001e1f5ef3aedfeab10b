@@ -1,0 +1,27 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import com.inetum.appliSpring.jpa.entity.Compte;
+import com.inetum.appliSpring.jpa.entity.Employe;
+
+/**
+ * DAO = Data Access Object
+ * avec méthode CRUD
+ *
+ */
+
+public interface DaoClient {
+	
+	Compte findById(Long numero);
+	Compte findCompteWithOperationsById(Long numero);
+	List<Compte> findAll();
+	List<Compte> findByMini(Double soldeMini);
+	List<Compte> findByMaxi(Double soldeMaxi);
+	Compte insert(Compte comp);  // en retour Compte avec numero auto_incrémenté
+	void update(Compte comp);
+	void deletById(Long num);
+
+	 
+
+}

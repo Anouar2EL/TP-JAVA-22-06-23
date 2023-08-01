@@ -1,0 +1,18 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import com.inetum.appliSpring.jpa.entity.Client;
+
+// E = type d'entité persistante (Client ou Compte)
+// PK = type de clef primaire ( Long ou Integer ou String ) 
+public interface DaoGeneric<E,PK> {
+
+
+	Client findById(PK id);
+	List<Client> findAll();
+	Client insert(E e); 
+	void update(E e);
+	void deletById(PK num);
+	
+}

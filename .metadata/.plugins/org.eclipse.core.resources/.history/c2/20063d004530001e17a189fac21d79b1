@@ -1,0 +1,79 @@
+package com.inetum.appliSpring;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.inetum.appliSpring.tp.Encadreur;
+import com.inetum.appliSpring.tp.Prefixeur;
+import com.inetum.appliSpring.tp1.PresentateurBlague;
+
+public class AppliSpringApplication {	
+
+		public static void main(String[] args) {
+			//testEncadreur();
+			//testBlagues();
+			testDataSource();
+		}
+			
+		public static void testDataSource() {	
+			
+			AnnotationConfigApplicationContext springContext = new
+					AnnotationConfigApplicationContext(DataSourceConfig.class);
+			
+			DataSource ds = (DataSource) springContext.getBean("myDataSource");
+			try {
+				Connection connection =ds.getConnection();
+				//... requette SQL...
+				System.out.println("connection ouverte = " + connection.toString());
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			springContext.close();
+		}
+		public static void testBlagues() {	
+			System.setProperty("spring.profiles.active","V1,eventuelProfilComplementaire");
+			//System.setProperty("spring.profiles.active","V2,eventuelProfilComplementaire");
+			
+			AnnotationConfigApplicationContext springContext = new
+					AnnotationConfigApplicationContext(MySpringConfig.class);
+			//GenerateurBlague generateurBlague = springContext.getBean(GenerateurBlague.class);
+			
+			PresentateurBlague  presentateurBlague= springContext.getBean(PresentateurBlague.class);
+			
+			System.err.println("appliSpring démarrée");
+			presentateurBlague.presenterBlague();
+			//plusieurs appels pouvoir avoir une fois sur 2 blagues drôles ou pas
+			presentateurBlague.presenterBlague();
+			presentateurBlague.presenterBlague();
+			presentateurBlague.presenterBlague();
+			presentateurBlague.presenterBlague();
+			springContext.close();
+		}
+		
+		
+		
+		public static void testEncadreur() {	
+			
+			//System.setProperty("spring.profiles.active","V1,eventuelProfilComplementaire");
+			System.setProperty("spring.profiles.active","V2,eventuelProfilComplementaire");
+			AnnotationConfigApplicationContext springContext = new
+					AnnotationConfigApplicationContext(MySpringConfig.class);
+			
+			Prefixeur prefixeur = springContext.getBean(Prefixeur.class);
+			
+			System.err.println("appliSpring démarrée");
+			System.err.println("chaine prefixee  ="+ prefixeur.prefixer("lundi"));
+			
+			Encadreur encadreur = springContext.getBean(Encadreur.class);
+			System.err.println("chaine encadrée  ="+ encadreur.encadrer("bob"));
+			
+			springContext.close();
+		}
+	
+	}
+

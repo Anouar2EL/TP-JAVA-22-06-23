@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CompteAjax</title>
+<script src="compteAjax.js"></script>
+</head>
+<body>
+	<table border ="1">
+		<thead> 
+		<tr><th> numero </th><th> label </th><th> solde </th></tr>
+		</thead>
+		<tbody id = "table_body">
+		<!--  <tr><td> 1 </td><td> CompteA </td><td> 50.0 </td></tr> -->
+		</tbody>
+		 
+	</table>
+</body>
+</html>

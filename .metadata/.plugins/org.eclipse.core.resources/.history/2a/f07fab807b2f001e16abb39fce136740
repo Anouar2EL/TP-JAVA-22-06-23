@@ -1,0 +1,9 @@
+package com.inetum.appliSpring;
+
+public class AppliSpringApplication {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

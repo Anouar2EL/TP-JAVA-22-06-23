@@ -1,0 +1,25 @@
+package com.inetum.appliSpringWeb.init;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.inetum.appliSpringWeb.dao.DaoCompte;
+import com.inetum.appliSpringWeb.entity.Compte;
+
+
+
+@Component
+public class InitDataSet {
+
+	@Autowired
+	private DaoCompte daoCompteJpa;
+	
+	@PostConstruct
+	public void initData() {
+		daoCompteJpa.insert(new Compte(null, "BNP",50.0));
+		daoCompteJpa.insert(new Compte(null, "LCL",80.0));
+		
+	}
+}

@@ -1,0 +1,18 @@
+package com.inetum.appliSpring.tp1;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class GenerateurBlaguePasDrole implements GenerateurBlague {
+
+	
+	@Override
+	public String nouvelleBlague(String chaine) {
+					
+		return "Pourquoi est-ce si difficile de conduire dans le Nord ?\r\n"
+				+ "\r\n"
+				+ "Parce que les voitures n’arrêtent pas de caler. (Pas-de-Calais)";
+	}
+
+
+}

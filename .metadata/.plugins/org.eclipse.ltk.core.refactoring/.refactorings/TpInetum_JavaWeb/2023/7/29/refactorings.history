@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;User.java&apos; to &apos;appliWeb/src/main/java/com.inetum.mbean&apos;&#x0D;&#x0A;- Original project: &apos;TpInetum_JavaWeb&apos;&#x0D;&#x0A;- Destination element: &apos;appliWeb/src/main/java/com.inetum.mbean&apos;&#x0D;&#x0A;- Original element: &apos;fr.inetum.tp.models.User.java&apos;" description="Copy compilation unit" destination="=appliWeb/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.inetum.mbean" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;fr.inetum.tp.models{User.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1689671438034" units="1" version="1.0"/>
+</session>

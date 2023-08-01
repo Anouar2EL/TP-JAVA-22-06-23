@@ -1,0 +1,19 @@
+package com.inetum.appliSpring.tp1;
+
+import com.inetum.appliSpring.tp.Encadreur;
+
+public class GenerateurBlagueDrole implements Encadreur {
+
+	@Override
+	public String encadrer(String chaine) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String encadrerMaj(String chaine) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

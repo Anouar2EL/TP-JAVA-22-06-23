@@ -1,0 +1,31 @@
+package com.inetum.appliSpring.tp1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+public class PresentateurBlagueImpl implements PresentateurBlague {
+
+	@Autowired  @Qualifier("Drole")
+	private GenerateurBlague generateurBlagueDrole;
+	
+	@Autowired  @Qualifier("PasDrole")
+	private GenerateurBlague generateurBlaguePasDrole;
+	
+	private GenerateurBlague generateurBlagueCourant = null;
+	
+
+	@Override
+	public void presenterBlague() {
+		//boolean isDrole = Math.random() < 0.5;
+		if (generateurBlagueCourant ==null) 
+		System.out.println("nouvelle Blague drôle : " + generateurBlagueDrole.nouvelleBlague());
+		else 
+		System.out.println("nouvelle Blague pas drôle : " + generateurBlaguePasDrole.nouvelleBlague());
+    }
+}
+
+
+
+

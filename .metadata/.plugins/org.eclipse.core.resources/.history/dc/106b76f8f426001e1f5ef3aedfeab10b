@@ -1,0 +1,39 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import com.inetum.appliSpring.jpa.entity.Operation;
+
+public class DaoOperationJpa implements DaoOperation {
+
+	@Override
+	public Operation findById(Long idOp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Operation> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Operation insert(Operation op) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Operation comp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deletById(Long op) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

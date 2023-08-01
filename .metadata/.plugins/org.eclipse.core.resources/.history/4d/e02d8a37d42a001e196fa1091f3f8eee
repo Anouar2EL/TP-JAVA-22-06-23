@@ -1,0 +1,20 @@
+package com.inetum.appliSpringWeb.rest;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import com.inetum.appliSpringWeb.entity.Compte;
+
+@RestController
+@RequestMapping(value="/api-bank/compte" , headers="Accept=application/json")
+public class CompteRestCtrl {
+	
+	//exemple de fin d'URL : /api-bank/compte
+	@GetMapping("/{numCompte}")
+	public Compte getDeviseByCode(@PathVariable("numCompte")Long numCompte) {
+
+	}
+	
+}

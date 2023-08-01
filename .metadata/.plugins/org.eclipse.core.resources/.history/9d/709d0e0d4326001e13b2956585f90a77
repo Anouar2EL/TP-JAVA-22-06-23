@@ -1,0 +1,50 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import com.inetum.appliSpring.jpa.entity.Compte;
+
+public class DaoCompteJpaSansSpring implements DaoCompte {
+
+	@Override
+	public Compte findById(Long numero) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Compte> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Compte> findByPrenom(String prenom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Compte insert(Compte emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Compte emp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deletById(long num) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

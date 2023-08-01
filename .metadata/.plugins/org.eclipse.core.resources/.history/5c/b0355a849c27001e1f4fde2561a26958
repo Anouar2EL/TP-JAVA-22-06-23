@@ -1,0 +1,81 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.inetum.appliSpring.jpa.entity.Client;
+import com.inetum.appliSpring.jpa.entity.Compte;
+
+@Repository  // pour cette classe de DAO soit prise en charge par Spring
+@Transactional  // pour demander commit/rollback automatiques
+public class DaoClientJpa implements DaoClient {
+
+	@Override
+	public Client findCompteWithcomptesById(Long numero) {
+		/*
+		// solution1 (bidouille) :
+		Compte compte = entityManager.find(Compte.class, numero);
+		for(Operation op : compte.getOperations()) {
+			//boucle for à vide sur les opartions en mode lazy
+			//pour que ça déclenche des petits select qui remontent
+			//tout de suite les valeurs en mémoire
+			//avec la fin de la transaction  et avant entityManager.close() de Spring ou autre
+			//===> ça évite LazyInitailisationException
+		}
+		return compte;
+		*/
+		
+		//solution 2 (avec query spécifique):
+		return entityManager
+				.createNamedQuery("Client.findCompteWithcomptesById",Client.class)
+				.setParameter(1,numero)//pour valeur de ?1
+				.getSingleResult();
+	}
+	
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	@Override
+	public Client findById(Long numero) {
+		return entityManager.find(Client.class, numero);
+	}
+
+	@Override
+	public List<Client> findAll() {
+		return entityManager.createQuery("SELECT c FROM Client c",Client.class).getResultList();
+	}
+
+	@Override
+	public List<Client> findByPrenom(String prenom) {
+		return entityManager
+				.createQuery("SELECT e FROM Client e WHERE e.prenom= :prenomCherche", Client.class)
+				.setParameter("prenomCherche",prenom)
+				.getResultList();
+	}
+
+	@Override
+	public Client insert(Client cl) {
+		entityManager.persist(cl);
+		return cl; 
+	}
+
+	@Override
+	public void update(Client cl) {
+		entityManager.merge(cl);
+
+	}
+
+	@Override
+	public void deletById(long num) {
+		Client compAsupprimer = entityManager.find(Client.class, num);
+		entityManager.remove(compAsupprimer);
+
+	}
+
+}

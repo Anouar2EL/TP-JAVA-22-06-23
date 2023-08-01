@@ -1,0 +1,106 @@
+package fr.inetum.formation.crud.jdbc.models;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class StagiaireTest {
+private Stagiaire stagiaire;
+
+
+	@BeforeEach
+	void init() {
+		 stagiaire = new Stagiaire("Anouar","anouar@inetum",LocalDate.of(2000, 01, 01),"123");
+	}
+	
+	@AfterEach
+	void detroy() {
+		stagiaire = null;
+	}
+
+
+	@Test
+	void testStagiaireIntegerStringStringLocalDateString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testStagiaireStringStringLocalDateString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testStagiaire() {
+		fail("Not yet implemented");
+	}
+
+
+	
+	@Test
+	void testGetId() {	
+		assertEquals(0, stagiaire.getId());
+		assertTrue(0 == stagiaire.getId());
+	}
+	
+	
+	@Test
+	void testSetId() {
+		stagiaire.setId(5);
+		assertEquals(5, stagiaire.getId());
+	}
+
+	@Test
+	void testGetPrenom() {
+		stagiaire.setPrenom("Anouar");
+		assertEquals("Anouar", stagiaire.getPrenom());
+	}
+
+	@Test
+	void testSetPrenom() {
+		stagiaire.setPrenom("Anouar");
+		assertEquals("Anouar", stagiaire.getPrenom());
+	}
+
+	@Test
+	void testGetEmail() {
+		stagiaire.setEmail("anouar@inetum.fr");
+		assertEquals("anouar@inetum.fr", stagiaire.getEmail());
+	}
+
+	@Test
+	void testSetEmail() {
+		stagiaire.setEmail("anouar@inetum.fr");
+		assertEquals("anouar@inetum.fr", stagiaire.getEmail());
+	}
+
+	@Test
+	void testGetDdn() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetDdn() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetMdp() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetMdp() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetAge() {
+		fail("Not yet implemented");
+	}
+
+}

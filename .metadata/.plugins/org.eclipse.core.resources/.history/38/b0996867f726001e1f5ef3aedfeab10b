@@ -1,0 +1,46 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Date;
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import com.inetum.appliSpring.jpa.entity.Compte;
+import com.inetum.appliSpring.jpa.entity.Operation;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+@SpringBootTest  // classe interprétée par JUnit et SpringBoot
+public class TestOperationDao {
+	
+	Logger logger =  LoggerFactory.getLogger(TestOperationDao.class);
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoCompte daoCompteJpa;
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoOperation daoOperationJpa;
+	
+	@Test
+	public void testCompteEtOperation(){
+		
+		// compte numero 1
+				Compte comp1 = daoCompteJpa.insert(new Compte(null, "Anouar",10000.0));	
+				Operation op1Comp1 = new Operation(null,-3.2,"achat bonbons",new Date(),comp1);
+				
+				Operation op1Comp1Relu = daoOperationJpa.findById(op1Comp1.getIdOp());
+				logger.trace("op1Comp1Relu :=" + op1Comp1Relu);
+				
+				assertEquals(-3.2, op1Comp1Relu.getMontant());
+				
+				
+	}
+
+}

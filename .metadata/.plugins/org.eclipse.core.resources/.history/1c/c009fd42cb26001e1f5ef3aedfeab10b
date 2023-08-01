@@ -1,0 +1,61 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.inetum.appliSpring.jpa.entity.Compte;
+import com.inetum.appliSpring.jpa.entity.Employe;
+
+public class DaoCompteJpaSansSpring implements DaoCompte {
+	
+	private EntityManager entityManager;
+	
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+		
+	}
+
+	@Override
+	public Compte findById(Long numero) {
+		 return entityManager.find(Compte.class, numero);
+	}
+
+	@Override
+	public List<Compte>findByMini(Double soldeMini) {
+	    return entityManager
+	            .createQuery("SELECT c FROM Compte c WHERE c.solde > :soldeMini", Compte.class)
+	            .setParameter("soldeMini", soldeMini)
+	            .getResultList();
+	}
+
+	@Override
+	public List<Compte>findByMaxi(Double soldeMaxi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Compte insert(Compte emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Compte emp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deletById(long num) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

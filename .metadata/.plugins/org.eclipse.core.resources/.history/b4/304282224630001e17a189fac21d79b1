@@ -1,0 +1,5 @@
+jdbc.driver=org.hsqldb.jdbc.JDBCDriver
+db.url=jdbc:oracle:thin:@localhost:1521:xe
+db.username=SYSTEM
+db.password=oracle
+

@@ -1,0 +1,51 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.inetum.appliSpring.jpa.entity.Employe;
+
+public class DaoEmployeJpaSansSpring implements DaoEmploye {
+
+	@Override
+	public Employe findById(Long numero) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Employe> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employe insert(Employe emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Employe emp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deletById(long num) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

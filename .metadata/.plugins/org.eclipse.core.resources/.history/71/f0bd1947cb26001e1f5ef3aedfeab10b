@@ -1,0 +1,82 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.inetum.appliSpring.jpa.entity.Compte;
+import com.inetum.appliSpring.jpa.entity.Employe;
+
+public class DaoCompteJpaSansSpring implements DaoCompte {
+	
+	private EntityManager entityManager;
+	
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+		
+	}
+
+	@Override
+	public Compte findById(Long numero) {
+		 return entityManager.find(Compte.class, numero);
+	}
+
+	@Override
+	public List<Compte>findByMini(Double soldeMini) {
+	    return entityManager
+	            .createQuery("SELECT c FROM Compte c WHERE c.solde > :soldeMini", Compte.class)
+	            .setParameter("soldeMini", soldeMini)
+	            .getResultList();
+	}
+
+	@Override
+	public List<Compte>findByMaxi(Double soldeMaxi) {
+	    return entityManager
+	            .createQuery("SELECT c FROM Compte c WHERE c.solde < :soldeMaxi", Compte.class)
+	            .setParameter("soldeMaxi", soldeMaxi)
+	            .getResultList();
+	}
+
+	@Override
+	public Compte insert(Compte comp) {
+		try {
+			entityManager.getTransaction().begin();
+			entityManager.persist(comp);
+			entityManager.getTransaction().commit();
+			} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw new RuntimeException("echec insert(compte)");
+			}
+			return comp; 
+	}
+
+	@Override
+	public void update(Compte comp) {
+		try {
+			entityManager.getTransaction().begin();
+			entityManager.merge(comp);
+			entityManager.getTransaction().commit();
+			} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw new RuntimeException("echec update(compte)");
+			}
+
+	}
+
+	@Override
+	public void deletById(long num) {
+		try {
+			entityManager.getTransaction().begin();
+			Employe empAsupprimer = entityManager.find(Employe.class, num);
+			entityManager.remove(empAsupprimer);
+			entityManager.getTransaction().commit();
+			} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw new RuntimeException("echec deletById");
+			}
+	}
+
+}

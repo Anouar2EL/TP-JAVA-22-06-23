@@ -1,0 +1,10 @@
+package com.inetum.appliSpring.jpa;
+
+public class TestSansSpringApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import com.inetum.appliSpring.jpa.entity.Compte;
+
+/**
+ * DAO = Data Access Object
+ * avec méthode CRUD
+ *
+ */
+
+public interface DaoCompte {
+	
+	Compte findById(Long numero);
+	List<Compte> findAll();
+	List<Compte> findByPrenom(String prenom);
+	//.....
+	Compte insert(Compte emp);  // en retour Compte avec numero auto_incrémenté
+	void update(Compte emp);
+	void deletById(long num);
+	 
+
+}

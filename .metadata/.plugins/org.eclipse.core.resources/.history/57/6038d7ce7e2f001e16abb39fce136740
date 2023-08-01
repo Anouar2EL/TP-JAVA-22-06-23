@@ -1,0 +1,10 @@
+package com.inetum.appliSpring;
+
+public class AppliSpringApplication {	
+	
+		void contextLoads() {
+			System.err.println("hello world");
+			
+		}
+	}
+

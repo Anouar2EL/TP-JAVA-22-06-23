@@ -1,0 +1,54 @@
+package com.inetum.appliSpring.jpa;
+
+import com.inetum.appliSpring.jpa.dao.DaoEmployeJpaSansSpring;
+import com.inetum.appliSpring.jpa.entity.Employe;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+
+// classe de démarrage de l'application (sans utiliser spring)
+public class TestSansSpringApp {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("appliSpringJpa");
+
+//NB: appliSpringJpa= name du persistent-unit configuré dans META-INF/persistence.xml
+		EntityManager entityManager = emf.createEntityManager();
+		
+		DaoEmployeJpaSansSpring daoEmployeJpa = new DaoEmployeJpaSansSpring();
+		daoEmployeJpa.setEntityManager(entityManager);
+		
+		Employe emp1 = new Employe(null, "prenom1", "Nom");
+		Employe emp1Sauvgarde = daoEmployeJpa.insert(emp1);
+		Long numEmp1 = emp1Sauvgarde.getNumero();
+		System.err.println("numero auto_incrémenté de emp1Sauvgarde :="+numEmp1);
+		
+		Employe emp1Relu = daoEmployeJpa.findById(numEmp1);
+		System.err.println("emp1Relu="+emp1Relu);
+		
+		// modif en mémoire
+		emp1Relu.setPrenom("nouveau_prenom");
+		emp1Relu.setNom("nouveau_nom");
+		
+		// update en base 
+		daoEmployeJpa.update(emp1Relu);
+		
+		
+		Employe emp1ReRelu = daoEmployeJpa.findById(numEmp1);
+		System.err.println("emp1ReRelu après le mise a jour = "+ emp1ReRelu);
+		
+//		daoEmployeJpa.deletById(numEmp1);
+//		Employe emp1ReReReluQuiExistePlus = daoEmployeJpa.findById(numEmp1);
+//		System.err.println("emp1ReReReluQuiExistePlus après la suppression = "
+//		+ emp1ReReReluQuiExistePlus);
+
+		
+		List<Employe> employes = daoEmployeJpa.findAll();
+		for (Employe emp : employes) {
+			System.out.println(emp);
+		}
+		entityManager.close();
+		emf.close();
+	}
+}

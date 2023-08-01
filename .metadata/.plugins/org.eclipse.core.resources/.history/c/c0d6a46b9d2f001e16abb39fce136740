@@ -1,0 +1,6 @@
+package com.inetum.appliSpring.tp1;
+
+public interface GenerateurBlague {
+
+	public String nouvelleBlague(String chaine);
+}

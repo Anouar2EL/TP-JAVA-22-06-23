@@ -1,0 +1,25 @@
+package com.inetum.appliSpring.tp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class EncadreurImpl implements Encadreur {
+
+	@Autowired
+	private Prefixeur prefixeur;
+	
+	@Autowired
+	private Suffixeur suffixeur;
+	
+	@Override
+	public String encadrer(String chaine) {
+		return suffixeur.suffixer(prefixeur.prefixer(chaine));
+	}
+
+	@Override
+	public String encadrerMaj(String chaine) {
+		return suffixeur.suffixerMaj(prefixeur.prefixerMaj(chaine));
+	}
+
+}

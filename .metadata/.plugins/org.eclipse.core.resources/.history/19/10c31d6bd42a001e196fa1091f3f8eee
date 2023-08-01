@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Welcome to  appliSpringWeb</h2>
+<h3> url de test pour WS REST en mode GET</h3>
+<a href="./api-devise/devise/USD">devise USD en JSON</a> <br/>
+</body>
+</html>

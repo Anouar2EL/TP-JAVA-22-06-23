@@ -1,0 +1,55 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.inetum.appliSpring.jpa.entity.Client;
+
+
+public class DaoClientJpa implements DaoClient {
+
+	
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	@Override
+	public Client findById(Long numero) {
+		return entityManager.find(Client.class, numero);
+	}
+
+	@Override
+	public List<Client> findAll() {
+		return entityManager.createQuery("SELECT c FROM Client c",Client.class).getResultList();
+	}
+
+	@Override
+	public List<Client> findByPrenom(String prenom) {
+		return entityManager
+				.createQuery("SELECT e FROM Client e WHERE e.prenom= :prenomCherche", Client.class)
+				.setParameter("prenomCherche",prenom)
+				.getResultList();
+	}
+
+	@Override
+	public Client insert(Client cl) {
+		entityManager.persist(cl);
+		return cl; 
+	}
+
+	@Override
+	public void update(Client cl) {
+		entityManager.merge(cl);
+
+	}
+
+	@Override
+	public void deletById(long num) {
+		Client compAsupprimer = entityManager.find(Client.class, num);
+		entityManager.remove(compAsupprimer);
+
+	}
+
+}

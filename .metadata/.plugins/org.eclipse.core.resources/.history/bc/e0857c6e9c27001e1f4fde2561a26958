@@ -1,0 +1,53 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
+import java.util.Date;
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.inetum.appliSpring.jpa.entity.Client;
+import com.inetum.appliSpring.jpa.entity.Compte;
+import com.inetum.appliSpring.jpa.entity.Operation;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+@SpringBootTest  // classe interprétée par JUnit et SpringBoot
+public class TestClientDao {
+	
+	Logger logger =  LoggerFactory.getLogger(TestClientDao.class);
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoCompte daoCompteJpa;
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoClient daoClientJpa;
+	
+	@Test
+	public void testQueries(){
+		
+		// compte numero 1
+		Client Cl1 = daoClientJpa.insert(new Client(null,"Anouar","EL KADIOUI"));	
+		Client Cl2 = daoClientJpa.insert(new Client(null,"Rabiae","EL KADIOUI"));
+		
+		Compte comp1 = daoCompteJpa.insert(new Compte(null, "A",10000.0,Cl1));	
+		Compte comp2 = daoCompteJpa.insert(new Compte(null, "B",2000.0,Cl1));	
+		
+		Compte comp3 = daoCompteJpa.insert(new Compte(null, "C",1000.0,Cl2));	
+		Compte comp4 = daoCompteJpa.insert(new Compte(null, "D",4000.0,Cl2));	
+
+		
+		Client Cl1Relu = daoClientJpa.findClientWithOperationsById(Cl1.getNumero());
+		logger.debug("Cl1Relu :=" + Cl1Relu);
+		logger.debug("comptes de Cl1Relu =" + Cl1Relu.getComptes());
+		assumeTrue(Cl1Relu.getComptes().size()==2);
+	}
+
+}

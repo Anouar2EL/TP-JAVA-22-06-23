@@ -1,0 +1,110 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import com.inetum.appliSpring.jpa.entity.Compte;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+@SpringBootTest  // classe interprétée par JUnit et SpringBoot
+public class TestCompteDao {
+	
+	Logger logger =  LoggerFactory.getLogger(TestCompteDao.class);
+	
+	@Autowired // pour intialisation DaoCompte
+	private DaoCompte daoCompteJpa;
+	
+	@Test
+	public void testQueries(){
+		
+		// compte numero 1
+				Compte comp1 = new Compte(null, "Anouar",10000.0);
+				
+				Compte comp1Sauvgarde = daoCompteJpa.insert(comp1);
+				Long numComp1 = comp1Sauvgarde.getNumero();
+				logger.trace("numero auto_incrémenté de comp1Sauvgarde :="+numComp1);	
+				
+				// compte numero 2
+				Compte comp2 = new Compte(null, "Ussef",20000.0);
+				Compte comp2Sauvgarde = daoCompteJpa.insert(comp2);
+				Long numComp2 = comp2Sauvgarde.getNumero();
+				logger.trace("numero auto_incrémenté de comp2Sauvgarde :="+numComp2);		
+				
+				// compte numero 3
+				Compte comp3 = new Compte(null, "Karim",40000.0);
+				Compte comp3Sauvgarde = daoCompteJpa.insert(comp3);
+				Long numComp3 = comp3Sauvgarde.getNumero();
+				logger.trace("numero auto_incrémenté de comp3Sauvgarde :="+numComp3);	
+				
+			
+				Compte comp1Relu = daoCompteJpa.findById(numComp1);
+				logger.trace("emp1Relu="+comp1Relu);
+				
+				Compte comp2Relu = daoCompteJpa.findById(numComp2);
+				logger.trace("emp1Relu="+comp2Relu);
+
+				Compte comp3Relu = daoCompteJpa.findById(numComp3);
+				logger.trace("emp3Relu="+comp3Relu);
+				
+				// modif en mémoire
+				comp1Relu.setLabel("Axel");
+				comp1Relu.setSolde(5000.0);
+				
+				comp2Relu.setLabel("Anas");
+				comp2Relu.setSolde(6000.0);
+				
+				comp3Relu.setLabel("Aire");
+				comp3Relu.setSolde(8000.0);
+
+				// update en base 
+				daoCompteJpa.update(comp1Relu);
+				daoCompteJpa.update(comp2Relu);
+				daoCompteJpa.update(comp3Relu);
+
+				
+				Compte comp1ReRelu = daoCompteJpa.findById(numComp1);
+				logger.trace("comp1ReRelu après le mise a jour = "+ comp1ReRelu);
+				
+				Compte comp2ReRelu = daoCompteJpa.findById(numComp2);
+				logger.trace("comp2ReRelu après le mise a jour = "+ comp2ReRelu);
+				
+				Compte comp3ReRelu = daoCompteJpa.findById(numComp3);
+				logger.trace("comp3ReRelu après le mise a jour = "+ comp3ReRelu);
+				
+				
+				
+				daoCompteJpa.deletById(numComp1);
+				Compte comp1ReReReluQuiExistePlus = daoCompteJpa.findById(numComp1);
+				logger.trace("comp1ReReReluQuiExistePlus après la suppression = "
+				+ comp1ReReReluQuiExistePlus);
+				
+				
+				
+				List<Compte> comptes = daoCompteJpa.findAll();
+				for (Compte comp : comptes) {
+					logger.trace("liste de comptes :" + comp);
+				}
+				
+				daoCompteJpa.insert(new Compte(null, "luc", 400.0));
+				daoCompteJpa.insert(new Compte(null, "Antonie", 70000.0));
+				
+				
+				List<Compte> comptesAyantSildeMini = daoCompteJpa.findByMini(400.0);
+				assertTrue(comptesAyantSildeMini.size()>=2);
+				logger.trace("comptesAyantSildeMini  = "+ comptesAyantSildeMini);
+				
+				
+				List<Compte> comptesAyantSildeMaxi = daoCompteJpa.findByMaxi( 6000.0);
+				assertTrue(comptesAyantSildeMaxi.size()>=2);
+				logger.trace("comptesAyantSildeMaxi  = "+ comptesAyantSildeMaxi);
+				
+	}
+
+}

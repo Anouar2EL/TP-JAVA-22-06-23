@@ -1,0 +1,15 @@
+package com.inetum.appliSpring.jpa.dao;
+
+import java.util.List;
+
+import com.inetum.appliSpring.jpa.entity.Client;
+
+
+/**
+ * DAO = Data Access Object
+ * avec méthode CRUD
+ *
+ */
+public interface DaoClient extends DaoGeneric<Client, Long> {
+	Client findClientWithcomptesById(Long numero); 
+}
