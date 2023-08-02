@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,14 +26,20 @@ import lombok.Setter;
             query = "SELECT c FROM Compte c WHERE c.solde>= ?1")
 @NamedQuery(name = "Compte.findBySoldeMaxi", 
             query = "SELECT c FROM Compte c WHERE c.solde<= ?1")
-
 @NamedQuery(name = "Compte.findByIdWithOperations",
 			query = "SELECT c FROM Compte c LEFT JOIN FETCH c.operations WHERE c.numero = ?1")
         
 @Getter @Setter @NoArgsConstructor
 public class Compte {
 
+	@Transient
+	private static Double decouvertAutorise = -500.0;
 	
+
+	public static Double getDecouvertAutorise() {
+		return decouvertAutorise;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -65,7 +72,7 @@ public class Compte {
 	public String toString() {
 		return "Compte [numero=" + numero + ", label=" + label + ", solde=" + solde + "]";
 	}
-	
+
 	
 	
 
