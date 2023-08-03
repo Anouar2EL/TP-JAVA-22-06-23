@@ -87,6 +87,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpringWeb2"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpring"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpringWeb"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpring.jpa"/>

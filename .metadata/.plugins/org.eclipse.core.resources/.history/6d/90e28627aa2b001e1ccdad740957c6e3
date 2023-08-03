@@ -1,5 +1,0 @@
-package com.inetum.appliSpringWeb.dto;
-
-public class VirementResponse {
-
-}

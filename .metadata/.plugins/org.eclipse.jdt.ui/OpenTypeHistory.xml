@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=appliSpring/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.inetum.appliSpring.tp{Encadreur.java[Encadreur" modifiers="513" timestamp="1690796929596"/>
-    <typeInfo handle="=appliSpring/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.inetum.appliSpring.tp1{PresentateurBlague.java[PresentateurBlague" modifiers="513" timestamp="1690804835617"/>
+    <typeInfo handle="=appliSpring/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.inetum.appliSpring.tp1{PresentateurBlague.java[PresentateurBlague" modifiers="513" timestamp="1690814933550"/>
+    <typeInfo handle="=appliSpringWeb2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.inetum.appliSpringWeb.service{ServiceCompte.java[ServiceCompte" modifiers="513" timestamp="1690963655783"/>
+    <typeInfo handle="=appliSpringWeb2/C:\/Users\/Administrateur\/.m2\/repository\/org\/apache\/tomcat\/embed\/tomcat-embed-core\/9.0.78\/tomcat-embed-core-9.0.78.jar=/maven.pomderived=/true=/=/maven.groupId=/org.apache.tomcat.embed=/=/maven.artifactId=/tomcat-embed-core=/=/maven.version=/9.0.78=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.apache.catalina(Service.class[Service" modifiers="1537" timestamp="1690272676909"/>
+    <typeInfo handle="=appliSpringWeb2/C:\/Users\/Administrateur\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\/jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/=/maven.pomderived=/true=/&lt;java.lang(RuntimeException.class[RuntimeException" modifiers="33" timestamp="1682427958000"/>
 </typeInfoHistroy>
