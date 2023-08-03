@@ -6,12 +6,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.inetum.appliSpringWeb.dao.DaoCompte;
 import com.inetum.appliSpringWeb.dao.DaoOperation;
+import com.inetum.appliSpringWeb.dto.CompteDto;
 import com.inetum.appliSpringWeb.entity.Compte;
 import com.inetum.appliSpringWeb.entity.Operation;
 import com.inetum.appliSpringWeb.exception.BankException;
@@ -20,8 +22,22 @@ import com.inetum.appliSpringWeb.exception.BankException;
 @Component // pour que la classe soit prise en compte par Spring
 @Service
 @Transactional
-public class ServiceCompteImpl implements ServiceCompte {
+public class ServiceCompteImpl extends AbstractGenericService<Compte, Long, CompteDto> 
+								implements ServiceCompte {
 
+
+
+	
+	@Override
+	public CrudRepository<Compte,Long> getDao() {
+		return this.daoCompte;
+	}
+	
+	@Override
+	public Class<CompteDto> getDaoClass() {
+		return CompteDto.class;
+	}
+	
 	Logger logger = LoggerFactory.getLogger(ServiceCompteImpl.class);
 	
 	@Autowired
@@ -83,10 +99,6 @@ public class ServiceCompteImpl implements ServiceCompte {
 		
 	}
 	
-	@Override
-	public Compte rechercherCompteParNumero(long numeroCompte) {	
-		return daoCompte.findById(numeroCompte).orElse(null);
-	}
 
 	@Override
 	public List<Compte> rechercherComptesDuClient(long numeroCompte) {
@@ -94,20 +106,6 @@ public class ServiceCompteImpl implements ServiceCompte {
 		return daoCompte.findByCustomerId(numeroCompte);
 	}
 
-	@Override
-	public Compte sauvgarderCompte(Compte compte) {
-		return daoCompte.save(compte);
-	}
-
-	@Override
-	public void supprimerCompte(long numeroCompte) {
-		daoCompte.deleteById(numeroCompte);
-	}
-
-	@Override
-	public boolean verefierExistanceCompte(long numeroCompte) {
-		return daoCompte.existsById(numeroCompte);
-	}
 
 	@Override
 	public Compte rechercherCompteAvecOperationsParNumero(long numeroCompte) {
@@ -121,15 +119,9 @@ public class ServiceCompteImpl implements ServiceCompte {
 	}
 
 	@Override
-	public List<Compte> rechercherTout() {
-		return daoCompte.findAll();
-	}
-
-	@Override
 	public List<Compte> TrouverParSoldeMin(Double soldeMini) {
 		return daoCompte.findBySoldeGreaterThanEqual(soldeMini);
 	}
-
 
 
 

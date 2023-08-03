@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inetum.appliSpringWeb.converter.DtoConverter;
+import com.inetum.appliSpringWeb.converter.GenericConverter;
 import com.inetum.appliSpringWeb.dto.CompteDto;
 import com.inetum.appliSpringWeb.entity.Compte;
 import com.inetum.appliSpringWeb.service.ServiceCompte;
@@ -38,9 +39,10 @@ public class CompteRestCtrl {
 	//exemple de fin d'URL: ./api-bank/compte/1
 	@GetMapping("/{numeroCompte}" )
 	public ResponseEntity<?> getCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
-	    Compte compte = serviceCompte.rechercherCompteParNumero(numeroCompte);
-	    if(compte!=null)
-	    	return new ResponseEntity<CompteDto>(dtoConverter.compteToCompteDto(compte), HttpStatus.OK);
+	    CompteDto compteDto = serviceCompte.searchDtoById(numeroCompte);
+	    if(compteDto!=null)
+	    	return new ResponseEntity<CompteDto>(GenericConverter.map(compteDto,CompteDto.class),
+	    													HttpStatus.OK);
 	    else
 	    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
 	    			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
@@ -51,11 +53,11 @@ public class CompteRestCtrl {
 	@DeleteMapping("/{numeroCompte}" )
 	public ResponseEntity<?> deleteCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
 		    
-		    if( !serviceCompte.verefierExistanceCompte(numeroCompte))
+		    if( !serviceCompte.exsistById(numeroCompte))
 		    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
 		    			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
 		    
-		    serviceCompte.supprimerCompte(numeroCompte);
+		    serviceCompte.deleteById(numeroCompte);
 		    return new ResponseEntity<String>("{ \"done\" : \"compte deleted\"}" ,HttpStatus.OK); 
 		    //ou bien
 		    //return new ResponseEntity<>(HttpStatus.NO_CONTENT); 
@@ -67,7 +69,7 @@ public class CompteRestCtrl {
 	public List<CompteDto> getComptes(
 			 @RequestParam(value="soldeMini",required=false) Double soldeMini){
 		if(soldeMini==null)
-			return dtoConverter.compteToCompteDto(serviceCompte.rechercherTout());
+			return serviceCompte.searchAllDto();
 		else
 			return dtoConverter.compteToCompteDto(
 					serviceCompte.TrouverParSoldeMin(soldeMini));
@@ -79,7 +81,7 @@ public class CompteRestCtrl {
 	// ou bien { "label" : "compteQuiVaBien" , "solde" : 50.0 }
 	@PostMapping("" )
 	public CompteDto postCompte(@RequestBody CompteDto nouveauCompte) {
-		Compte compteEnregistreEnBase = serviceCompte.sauvgarderCompte(
+		Compte compteEnregistreEnBase = serviceCompte.saveOrUpdate(
 										dtoConverter.compteDtoToCompte(nouveauCompte));
 		return dtoConverter.compteToCompteDto(compteEnregistreEnBase); //on retourne le compte avec clef primaire auto_incrémentée
 	}
@@ -96,13 +98,13 @@ public class CompteRestCtrl {
 		    Long numCompteToUpdate = numeroCompte!=null ? numeroCompte : compteDto.getNumero();
 		   
 		    
-		    if(!serviceCompte.verefierExistanceCompte(numCompteToUpdate))
+		    if(!serviceCompte.exsistById(numCompteToUpdate))
 		    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
  			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
 		    
 		    if(compteDto.getNumero()==null)
 		    	compteDto.setNumero(numCompteToUpdate);
-		    serviceCompte.sauvgarderCompte(dtoConverter.compteDtoToCompte(compteDto));
+		    serviceCompte.saveOrUpdate(dtoConverter.compteDtoToCompte(compteDto));
 			return new ResponseEntity<CompteDto>(compteDto , HttpStatus.OK);
 	}
 	
