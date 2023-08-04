@@ -19,7 +19,7 @@ import com.inetum.appliSpringWeb.entity.Operation;
 import com.inetum.appliSpringWeb.exception.BankException;
 
 
-@Component // pour que la classe soit prise en compte par Spring
+//@Component // pour que la classe soit prise en compte par Spring
 @Service
 @Transactional
 public class ServiceCompteImpl extends AbstractGenericService<Compte, Long, CompteDto> 
@@ -34,7 +34,7 @@ public class ServiceCompteImpl extends AbstractGenericService<Compte, Long, Comp
 	}
 	
 	@Override
-	public Class<CompteDto> getDaoClass() {
+	public Class<CompteDto> getDtoClass() {
 		return CompteDto.class;
 	}
 	

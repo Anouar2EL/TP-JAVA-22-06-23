@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.inetum.appliSpringWeb.entity.Compte;
 import com.inetum.appliSpringWeb.entity.Operation;
@@ -14,9 +15,10 @@ import com.inetum.appliSpringWeb.exception.BankException;
 
 
 @SpringBootTest // classe interprétée par JUnit et SpringBoot
-//@ActiveProfiles("oracle")
+@ActiveProfiles({"perf", "profil2QueJaime"})
 public class TestServiceCompte {
 
+	
 	Logger logger = LoggerFactory.getLogger(TestServiceCompte.class);
 	
 	@Autowired

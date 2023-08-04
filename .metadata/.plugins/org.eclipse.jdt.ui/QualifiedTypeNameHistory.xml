@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.Devise"/>
-    <fullyQualifiedTypeName name="io.swagger.annotations.ApiModelProperty"/>
-    <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.media.Schema"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
-    <fullyQualifiedTypeName name="lombok.ToString"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.VirementResponse"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.VirementRequest"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dao.DaoOperationJpa"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
@@ -33,14 +23,12 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.ActiveProfiles"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
-    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.servers.Server"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dao.DaoCompte"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.service.TestServiceCompte"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.service.ServiceCompte"/>
     <fullyQualifiedTypeName name="com.mysql.cj.util.DnsSrv.SrvRecord"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
@@ -56,8 +44,20 @@
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Compte"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Operation"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.service.ServiceCustomer"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dao.DaoCustomer"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Customer"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dao.DaoCustomer"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.converter.DtoConverter"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.service.ServiceCompte"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
+    <fullyQualifiedTypeName name="org.yaml.snakeyaml.events.Event.ID"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.service.AbstractGenericService"/>
+    <fullyQualifiedTypeName name="org.hibernate.cache.spi.AbstractCacheTransactionSynchronization"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.CompteDto"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.converter.GenericConverter"/>
 </qualifiedTypeNameHistroy>

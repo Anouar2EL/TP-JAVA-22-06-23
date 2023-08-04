@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inetum.appliSpringWeb.converter.DtoConverter;
 import com.inetum.appliSpringWeb.converter.GenericConverter;
+import com.inetum.appliSpringWeb.dto.ApiError;
 import com.inetum.appliSpringWeb.dto.CompteDto;
 import com.inetum.appliSpringWeb.entity.Compte;
 import com.inetum.appliSpringWeb.service.ServiceCompte;
@@ -36,24 +37,47 @@ public class CompteRestCtrl {
 	private ServiceCompte serviceCompte;
 	
 	private DtoConverter dtoConverter = new DtoConverter();
+	
+	/*
 	//exemple de fin d'URL: ./api-bank/compte/1
 	@GetMapping("/{numeroCompte}" )
 	public ResponseEntity<?> getCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
 	    CompteDto compteDto = serviceCompte.searchDtoById(numeroCompte);
 	    if(compteDto!=null)
-	    	return new ResponseEntity<CompteDto>(GenericConverter.map(compteDto,CompteDto.class),
-	    													HttpStatus.OK);
+	    	return new ResponseEntity<CompteDto>(
+	    			 compteDto, HttpStatus.OK); 
 	    else
-	    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
+	    	return new ResponseEntity<ApiError>(
+	    			           new ApiError(HttpStatus.NOT_FOUND ,"compte not found") ,
 	    			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
+	}
+	*/
+	
+	//exemple de fin d'URL: ./api-bank/compte/1
+	@GetMapping("/{numeroCompte}" )
+	public CompteDto getCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
+		    return serviceCompte.searchDtoById(numeroCompte);
+		    //en cas de numero de compte pas trouvé
+		    //l'exception "NotFoundException" remontée par l'appel à .searchDtoById(...)
+		    //est automatiquement gérée par RestResponseEntityExceptionHandler
+		    //et  celui ci construit et retourne automatiquement
+		    //un ResponseEntity<ApiError> avec le bon status http et le bon message
 	}
 	
 	//exemple de fin d'URL: ./api-bank/compte/1
 	//à déclencher en mode DELETE
 	@DeleteMapping("/{numeroCompte}" )
 	public ResponseEntity<?> deleteCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
+		    serviceCompte.deleteById(numeroCompte);//retournant NotFoundException
+		    return new ResponseEntity<String>("{ \"done\" : \"compte deleted\"}" ,
+		    		                          HttpStatus.OK); 
+		}
+	
+	/*
+	@DeleteMapping("/{numeroCompte}" )
+	public ResponseEntity<?> deleteCompteByNumero(@PathVariable("numeroCompte") Long numeroCompte) {
 		    
-		    if( !serviceCompte.exsistById(numeroCompte))
+		    if( !serviceCompte.existById(numeroCompte))
 		    	return new ResponseEntity<String>("{ \"err\" : \"compte not found\"}" ,
 		    			           HttpStatus.NOT_FOUND); //NOT_FOUND = code http 404
 		    
@@ -62,6 +86,7 @@ public class CompteRestCtrl {
 		    //ou bien
 		    //return new ResponseEntity<>(HttpStatus.NO_CONTENT); 
 		}
+	*/
 	
 	//exemple de fin d'URL: ./api-bank/compte
 	//                      ./api-bank/compte?soldeMini=0
