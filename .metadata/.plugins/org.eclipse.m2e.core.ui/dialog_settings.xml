@@ -87,6 +87,10 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Administrateur\eclipse-workspace\my-security-starter"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\my-security-configure"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\my-security"/>
+			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpringWeb4"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpringWeb3"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpringWeb2"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\appliSpring"/>
@@ -98,10 +102,6 @@
 			<item value="C:\Users\Administrateur\eclipse-workspace\basesJava"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\basesJava2"/>
 			<item value="C:\Users\Administrateur\eclipse-workspace\basesJdbc"/>
-			<item value="C:\Users\Administrateur\eclipse-workspace\jakarta_ee"/>
-			<item value="C:\Users\Administrateur\Downloads\jakarta_ee"/>
-			<item value="C:\Users\Administrateur\Downloads\jakarta_ee\jakarta_ee"/>
-			<item value="C:\Users\Administrateur\eclipse-workspace\projetJavaEnEquipe"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

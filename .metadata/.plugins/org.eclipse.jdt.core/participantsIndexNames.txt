@@ -27,6 +27,8 @@ C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp
 \decouverte_jsp\src\main\java
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2044765950.index
 \decouverte_jsp\src\main\java
+C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\884499244.index
+\appliSpringWeb4\src\main\java
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3810159878.index
 \projet-convert\src\main\java
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1903721471.index

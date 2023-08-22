@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dao.DaoOperationJpa"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpring.MySpringConfig"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpring.tp.Encadreur"/>
-    <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpring.tp.Prefixeur"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpring.tp.Suffixeur"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpring.tp1.GenerateurBlagueDrole"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpring.tp1.GenerateurBlaguePasDrole"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
@@ -19,7 +11,6 @@
     <fullyQualifiedTypeName name="com.inetum.appliSpring.DataSourceConfig"/>
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="com.zaxxer.hikari.HikariDataSource"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Profile"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.ActiveProfiles"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
@@ -44,7 +35,6 @@
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Compte"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Operation"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.service.ServiceCustomer"/>
-    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Customer"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dao.DaoCustomer"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
@@ -60,4 +50,14 @@
     <fullyQualifiedTypeName name="org.hibernate.cache.spi.AbstractCacheTransactionSynchronization"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.CompteDto"/>
     <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.converter.GenericConverter"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.entity.Customer"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.CustomerDto"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat.Shape"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.dto.ApiError"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.inetum.appliSpringWeb.exception.NotFoundException"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Profile"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>
